@@ -1,3 +1,116 @@
+# Voting App API
+
+Welcome to the Voting App API documentation! This API allows users to create polls, retrieve existing polls, and cast votes on those polls.
+
+## Base URL
+http://localhost:8080/api/polls
+
+## Endpoints
+
+### 1. Create a Poll
+
+- **Endpoint:** `POST /api/polls`
+- **Description:** Creates a new poll.
+- **Request Body:**
+{
+  
+    "question": "new Poll again",
+    "options": [
+        {
+            "optionText": "option 1 new",
+            "voteCount": 0
+        },
+        {
+            "optionText": "option 2 new",
+            "voteCount": 0
+        }
+    ]
+}
+
+### 2. Get All Polls
+
+- **Endpoint:** `GET /api/polls`
+- **Description:** Retrieves a list of all polls.
+- **Response:**
+- **Status Code:** `200 OK`
+- **Body:**
+
+
+### 3. Get Poll by ID
+
+- **Endpoint:** `GET /api/polls/{id}`
+- **Description:** Retrieves a specific poll by its ID.
+- **Path Parameters:**
+- `id` (Long): The ID of the poll to retrieve.
+- **Response:**
+- **Status Code:** `200 OK`
+  - **Body:**
+  ```
+  
+    "id": 1,
+    "question": "new Poll again",
+    "options": [
+        {
+            "optionText": "option 1 new",
+            "voteCount": 0
+        },
+        {
+            "optionText": "option 2 new",
+            "voteCount": 0
+        }
+    ]
+
+  ```
+
+ - **Status Code:** `404 Not Found` (if the poll does not exist)
+
+### 4. Vote on a Poll
+
+- **Endpoint:** `POST /api/polls/vote`
+- **Description:** Casts a vote for a specific option in a poll.
+- **Request Body:**
+
+{
+"pollId": 1,
+"optionIndex": 0
+}
+
+- **Response:**
+   - **Status Code:** `204 No Content` (indicates successful vote)
+   - Note: No response body.
+
+## Cross-Origin Resource Sharing (CORS)
+
+This API allows requests from the following origin:
+
+
+
+
+
+## Technologies Used
+
+- Spring Boot
+- Java
+- Maven
+- Angularr
+
+## Getting Started
+
+To run this application:
+
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run the application using your preferred method (e.g., using an IDE or command line).
+4. Access the API at `http://localhost:8080/api/polls`.
+
+## License
+
+This project is licensed under the MIT License.
+
+
+
+
+
 # PollingApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
